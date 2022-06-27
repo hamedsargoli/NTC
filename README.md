@@ -1,0 +1,2 @@
+# NTC
+NTC Thermistor 
