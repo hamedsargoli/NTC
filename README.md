@@ -1,6 +1,6 @@
 # NTC Thermistor Library
 
-For Arduino ant STM32 boards.
+For Arduino and STM32 boards.
 
 The Library implements a set of methods for working with a NTC thermistor.
 Provides a temperature reading in Celsius, Fahrenheit and Kelvin.
