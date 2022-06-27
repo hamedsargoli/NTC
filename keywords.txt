@@ -1,0 +1,29 @@
+##########################################
+# Syntax Coloring Map For NTC_Thermistor #
+##########################################
+
+##########################################
+#         Data types (KEYWORD1)          #
+##########################################
+
+SENSOR_PIN			KEYWORD1
+B_VALUE				KEYWORD1
+NOMINAL_TEMPERATURE 		KEYWORD1
+R_Series			KEYWORD1
+NTC_R				KEYWORD1
+REF_Volt			KEYWORD1
+VCC_series_resistor		KEYWORD1
+Number_Read			KEYWORD1
+Resolution			KEYWORD1
+Voltage_on_series_resistor	KEYWORD1
+
+##########################################
+#    Methods and Functions (KEYWORD2)    #
+##########################################
+
+NTC				KEYWORD2
+read_value_adc			KEYWORD2
+read_voltage_NTC_Sensor		KEYWORD2
+NTC_resistor			KEYWORD2
+Temperature_K			KEYWORD2
+Temperature_C			KEYWORD2
