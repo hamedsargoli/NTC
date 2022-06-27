@@ -1,20 +1,22 @@
 # NTC Thermistor Library
 
-For Arduino ant STM32 boards.
+For Arduino and STM32 boards.
 
 The Library implements a set of methods for working with a NTC thermistor.
 Provides a temperature reading in Celsius, Fahrenheit and Kelvin.
 
 # How Work
-To calculate the thermistor resistance using a simple formula called equation with parameter B (with only NTC termistor).
+To calculate the thermistor resistance using a simple formula called equation with parameter `B` (with only NTC thermistor).
 
 ![Diagram](PIC/0.jpeg)
 
 Where:
 
-e is the base of natural logarithm
-R0 is the resistance of the thermistor measured at the temperature T0
-B is a constant coefficient that depends on the characteristics of the material, it is a constant expressed in K, and its value is indicated by the manufacturers on the technical sheets
+`e` is the base of natural logarithm
+
+`R0` is the resistance of the thermistor measured at the temperature T0
+
+`B` is a constant coefficient that depends on the characteristics of the material, it is a constant expressed in K, and its value is indicated by the manufacturers on the technical sheets
 To calculate the temperature we need know the resistance RT using the Ohm's laws.
 
 ![Diagram](PIC/1.jpeg)
@@ -29,7 +31,8 @@ Now we have all the data to calculate the temperature.
 
 Remember to convert all parameters (for example T0) to Kelvin before the calculations, and also the result is in Kelvin.
 
-## Installation
+
+## Installation Library
 
 1. [Download](https://github.com/hamedsargoli/NTC) the Latest release from gitHub.
 2. Unzip and modify the Folder name to "NTC_Thermistor" (Remove the '-version')
@@ -62,7 +65,7 @@ Connect to the analog side of an Arduino Uno. Run 5V through the thermistor, the
     // Read a temperature in Fahrenheit.
     double fahrenheit = thermistor.readFahrenheit();
     // For older devices.
-    double farenheit = thermistor.readFarenheit();
+    double fahrenheit = thermistor.readFahrenheit();
 ```
 
 ### Examples
