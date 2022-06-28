@@ -1,6 +1,8 @@
+#ifndef NTC_H
 #include "NTC.h"
+#endif
 
- 
+  
   NTC :: NTC(char _SENSOR_PIN , float _B_VALUE , float _NOMINAL_TEMPERATURE ,float _R_Series ,float _NTC_R , 
             float _REF_Volt , float _VCC_series_resistor , int _Number_Read , float _Resolution)
   {

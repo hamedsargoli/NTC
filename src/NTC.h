@@ -1,10 +1,12 @@
 /**
  * @file       NTC.cpp
  * @author     Hamed Sargoli
+ * @version    1.0.0
  * @license    This project is released under the MIT License (MIT)
  * @copyright  Copyright (c) 2022 Hamed Sargoli
  * @date       2022/06/27
  * @brief      Read Temperature from NTC Sensor and compatable change reference voltage ADC and VCC Series Resistor ...
+ *             Github Link for download library and example : https://github.com/hamedsargoli/NTC 
  * 
  * parameter Programable
  * @param _SENSOR_PIN sensor connect adc pin
@@ -19,10 +21,16 @@
  */
  
 
-#ifndef NTC_h
-#define NTC_h
+#ifndef NTC_H
+#define NTC_H
 
-#include <ARDUINO.h>
+
+#if defined(ARDUINO) && (ARDUINO >= 100)
+	#include <Arduino.h>
+#else
+	#include <WProgram.h>
+#endif
+
 
 class NTC
 {
@@ -31,7 +39,7 @@ class NTC
 
   public:
     //default Value
-    char SENSOR_PIN=0;                                            //Sensor ADC PIN
+    char SENSOR_PIN = 1;                                            //Sensor ADC PIN
     float B_VALUE = 3977;                                         // 3000~5000
     float NOMINAL_TEMPERATURE=25+273.15;                          //Nominal Temp
     float R_Series = 10000;                                       //Ω  Series Resistance
@@ -41,7 +49,7 @@ class NTC
     int Number_Read=1;                                            //Number for mid filter
     float Resolution = 1024.00;                                   //Resolution 10bit
     
-    
+    #ifndef NTC
     /**
     * initialize Class
     * 
@@ -56,7 +64,8 @@ class NTC
     * @param _Resolution Resolution micro controller
     */
     NTC(char _SENSOR_PIN , float _B_VALUE , float _NOMINAL_TEMPERATURE ,float _R_Series ,float _NTC_R , 
-        float _REF_Volt , float _VCC_series_resistor , int _Number_Read , float _Resolution){}
+        float _REF_Volt , float _VCC_series_resistor , int _Number_Read , float _Resolution);
+    
     
     /**
     * initialize Class
@@ -72,7 +81,7 @@ class NTC
     * @param _Resolution = 1024.00 default
     */
     NTC(char _SENSOR_PIN , float _B_VALUE , float _NOMINAL_TEMPERATURE ,float _R_Series ,float _NTC_R ,
-        float _REF_Volt , float _VCC_series_resistor){}
+        float _REF_Volt , float _VCC_series_resistor);
     
     /**
     * initialize Class
@@ -87,10 +96,12 @@ class NTC
     * @param _Number_Read = 1 default  
     * @param _Resolution = 1024.00 default
     */
-    NTC(char _SENSOR_PIN , float _B_VALUE , float _NOMINAL_TEMPERATURE ,float _R_Series ,float _NTC_R){}
+    NTC(char _SENSOR_PIN , float _B_VALUE , float _NOMINAL_TEMPERATURE ,float _R_Series ,float _NTC_R);
+    #endif
     //-----------------------------------------------------------------------------------------------------------------------
+    
 
-
+    #ifndef read_value_adc
     /**
     * read adc
     * 
@@ -99,20 +110,21 @@ class NTC
     * 
     * @return This function read adc pin and filter median output
     */
-    float read_value_adc(char _SENSOR_PIN , int _Number_Read){}
+    float read_value_adc(char _SENSOR_PIN , int _Number_Read);
 
     /**
     * read adc
     * 
-    * @param _SENSOR_PIN = 0
+    * @param _SENSOR_PIN = 1
     * @param _Number_Read = 1
     * 
     * @return This function read adc pin
     */
-    float read_value_adc(){}
+    float read_value_adc();
+    #endif
     //-----------------------------------------------------------------------------------------------------------------------
 
-
+    #ifndef read_voltage_NTC_Sensor
     /**
     * This function calculate voltage on sensor
     * 
@@ -123,47 +135,49 @@ class NTC
     * 
     * @return This function calculate voltage on sensor
     */
-    float read_voltage_NTC_Sensor(float _Resolution , float _REF_Volt , char _SENSOR_PIN , int _Number_Read){}
+    float read_voltage_NTC_Sensor(float _Resolution , float _REF_Volt , char _SENSOR_PIN , int _Number_Read);
     
     /**
     * This function calculate voltage on sensor
     * 
-    * @param _SENSOR_PIN = 0
+    * @param _SENSOR_PIN = 1
     * @param _REF_Volt = 5
     * @param _Number_Read = 1 
     * @param _Resolution = 1024.00
     * 
     * @return This function calculate voltage on sensor
     */
-    float read_voltage_NTC_Sensor(){}
+    float read_voltage_NTC_Sensor();
+    #endif
     //-----------------------------------------------------------------------------------------------------------------------
     
-    
+    #ifndef NTC_resistor
     /**
     * This function Calculate resistor sensor
     * 
     * @return resistor NTC
     */
-    float NTC_resistor(){}
+    float NTC_resistor();
+    #endif
     //-----------------------------------------------------------------------------------------------------------------------
     
-
+    #ifndef Temperature_K
    /**
     * This function Calculate Temperature in Kelvin
     * 
     * @return Temperature
     */
-    float Temperature_K(){}
+    float Temperature_K();
+    #endif
     //-----------------------------------------------------------------------------------------------------------------------
     
-    
+    #ifndef Temperature_C
     /**
     * This function Calculate Temperature in Celsius
     * 
     * @return Temperature_K() - 273.15 (float)
     */
-    float Temperature_C(){}
-
+    float Temperature_C();
+    #endif
 };//end class
-
 #endif
