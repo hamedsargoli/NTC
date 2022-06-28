@@ -70,11 +70,9 @@ Connect to the analog side of an Arduino Uno. Run 5V through the thermistor, the
 
 ### Examples
 
-[Serial Reading](/examples/SerialReading/SerialReading.ino)
+[Serial Read](/examples/SerialRead/SerialRead.ino)
 
 [Average Measurement](/examples/AverageMeasurement/AverageMeasurement.ino)
-
-[Smooth Measurement](/examples/SmoothMeasurement/SmoothMeasurement.ino)
 
 [STM32...](/examples/STM32/STM32.ino)
 
